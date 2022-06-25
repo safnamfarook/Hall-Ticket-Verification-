@@ -1,0 +1,41 @@
+{% extends 'index13.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/get_sub">
+  <table class="table">
+    <tr>
+      <td>COURSE</td>
+      <td><label>
+        <select class="form-control"  style="width:auto;" name="select" required>
+          <option value="">Select</option>
+            {% for i in val%}
+        <option value="{{i[0]}}">{{i[1]}}</option>
+        {% endfor %}
+        </select>
+
+      </label></td>
+    </tr>
+    <tr>
+      <td>SEM</td>
+      <td><label>
+          <select class="form-control" style="width:auto;"  name="select2" required>
+            <option value="">Select</option>
+            {% for i in range(1,7)%}
+          <option value="{{i}}">{{i}}</option>
+               {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>SUBJECT</td>
+      <td><label>
+        <input type="text" class="form-control"  name="textfield" required/>
+      </label></td>
+    </tr>
+  </table>
+  <p>
+    <label>
+    <input type="submit" class="btn btn-light btn" name="Submit" value="ADD" />
+    </label>
+  </p>
+</form>
+{% endblock %}

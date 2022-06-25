@@ -1,0 +1,25 @@
+{% extends 'index12.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/external_mark">
+  <table class="table">
+    <tr>
+      <td width="114">REGISTRATION</td>
+      <td width="46">GPA</td>
+      <td width="33">FILE</td>
+      <td width="34">&nbsp;</td>
+      <td width="92">&nbsp;</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{i[1]}}</td>
+      <td>{{i[2]}}</td>
+      <td><a href="../static/EXTERNAL_MARKS/{{i[3]}}"download>DOWNLOAD</a></td>
+      <td><a href="/edit_external_call?id={{i[0]}}">EDIT</a></td>
+      <td><a href="/delete_external?id={{i[0]}}">DELETE</a></td>
+    </tr>
+      {% endfor %}
+    <td colspan="5" ALIGN="center"><input type="submit" class="btn btn-light btn" value="ADD" name="add"></td>
+  </table>
+</form>
+{% endblock %}

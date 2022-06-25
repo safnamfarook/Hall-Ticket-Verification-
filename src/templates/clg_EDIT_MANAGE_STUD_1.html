@@ -1,0 +1,39 @@
+{% extends 'index13.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/edit_subject">
+  <table class="table">
+    <tr>
+      <td>COURSE</td>
+      <td><label>
+        <select class="form-control" name="select">
+
+        <option value="{{val[1]}}">{{val[4]}}</option>
+
+        </select>
+
+      </label></td>
+    </tr>
+    <tr>
+      <td>SEM</td>
+      <td><label>
+          <select class="form-control" name="select2">
+
+          <option>{{val[2]}}</option>
+
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>SUBJECT</td>
+      <td><label>
+        <input type="text" class="form-control" name="textfield"  value="{{val[3]}}"/>
+      </label></td>
+    </tr>
+  </table>
+  <p>
+    <label>
+    <input type="submit" class="btn btn-light btn" name="edit" value="EDIT" />
+    </label>
+  </p>
+</form>
+{% endblock %}

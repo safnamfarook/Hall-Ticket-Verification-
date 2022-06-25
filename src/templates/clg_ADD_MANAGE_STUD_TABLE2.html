@@ -1,0 +1,29 @@
+{% extends 'index13.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/add_sub">
+  <table class="table">
+
+    <tr>
+      <td width="79">COURSE</td>
+      <td width="42">SEM</td>
+      <td width="59">SUBJECT</td>
+      <td width="70">&nbsp;</td>
+
+
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>{{i[4]}}</td>
+      <td>{{i[2]}}</td>
+      <td>{{i[3]}}</td>
+      <td><a href="{{url_for('edit_subject_call',id=i[0])}}">EDIT</a></td>
+    </tr>
+  {%  endfor %}
+  </table>
+  <p>
+    <label>
+    <input type="submit" class="btn btn-light btn" name="Submit" value="ADD SUBJECT" />
+    </label>
+  </p>
+</form>
+{% endblock %}

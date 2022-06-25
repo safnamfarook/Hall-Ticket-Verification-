@@ -1,0 +1,47 @@
+{% extends 'index12.html' %}
+{% block body %}
+<form action="external_marks" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table">
+    <tr>
+      <td width="75" height="62">Registration Number: </td>
+      <td width="102"><label>
+        <input type="text" class="form-control" name="textfield" required />
+      </label></td>
+    </tr>
+    <tr>
+      <td width="75" height="62">GPA: </td>
+      <td width="102"><label>
+        <input type="text" class="form-control" name="textfield2" required />
+      </label></td>
+    </tr>
+    <tr>
+      <td height="60">FILE:</td>
+      <td>
+        <!--<label>-->
+        <!--<input type="file" name="file" required />-->
+      <!--</label>-->
+       <div class="custom-file">
+  <input type="file" class="custom-file-input" name="file" id="file">
+  <label class="custom-file-label" for="file">Choose file</label>
+          <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+              <script>
+            $('#file').on('change',function(){
+                //get the file name
+                var fileName = $(this).val();
+
+                //replace the "Choose a file" label
+                $(this).next('.custom-file-label').html(fileName);
+            })
+        </script>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" class="btn btn-light btn" name="Submit" value="Submit" />
+          </label>
+        </div></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

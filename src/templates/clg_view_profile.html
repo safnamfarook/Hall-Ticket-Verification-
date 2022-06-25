@@ -1,0 +1,39 @@
+{% extends 'index13.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+<table class="table">
+  <tr>
+    <th width="116">COLLEGE NAME </th>
+    <td width="119">{{i[1]}}&nbsp;</td>
+  </tr>
+  <tr>
+    <th>REGISTRATION NUMBER </th>
+    <td>{{i[2]}}</td>
+  </tr>
+  <tr>
+    <th>PLACE</th>
+    <td>{{i[3]}}&nbsp;</td>
+  </tr>
+  <tr>
+    <th>DISTRICT</th>
+    <td>{{i[4]}}&nbsp;</td>
+  </tr>
+  <tr>
+    <th>POST</th>
+    <td>{{i[5]}}&nbsp;</td>
+  </tr>
+  <tr>
+    <th>PINCODE</th>
+    <td>&nbsp;{{i[6]}}</td>
+  </tr>
+  <tr>
+    <th>EMAIL</th>
+    <td>{{i[7]}}&nbsp;</td>
+  </tr>
+  <tr>
+    <th>PHONE</th>
+    <td>{{i[8]}}&nbsp;</td>
+  </tr>
+</table>
+</form>
+{% endblock %}

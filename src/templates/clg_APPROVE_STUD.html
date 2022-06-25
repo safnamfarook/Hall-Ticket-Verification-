@@ -1,0 +1,21 @@
+{% extends 'index13.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table">
+    <tr>
+      <td width="74">STUDENT NAME </td>
+      <td width="76">PLACE</td>
+      <td width="76">PHONE</td>
+      <td width="31">&nbsp;</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{i[1]}}</td>
+      <td>{{i[2]}}</td>
+      <td>{{i[3]}} </td>
+      <td><a href="{{url_for('approve_stud_table',id=i[10])}}">VIEW</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

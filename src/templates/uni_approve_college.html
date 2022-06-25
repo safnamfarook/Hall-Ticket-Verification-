@@ -1,0 +1,34 @@
+{% extends 'index12.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table" >
+    <tr>
+      <td width="128">COLLGE NAME </td>
+      <td width="73">REGISTRATION NUMBER </td>
+      <td width="73">PLACE</td>
+      <td width="67">DISTRICT</td>
+      <td width="74">POST</td>
+      <td width="74"><p>PINCODE</p>      </td>
+      <td width="74">EMAIL</td>
+      <td width="74">PHONE</td>
+      <td width="57"><a href="#"></a></td>
+      <td width="59"><a href="#"></a></td>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td height="62">&nbsp;{{i[1]}}</td>
+      <td>&nbsp;{{i[2]}}</td>
+      <td>&nbsp;{{i[3]}}</td>
+      <td>&nbsp;{{i[4]}}</td>
+      <td>&nbsp;{{i[4]}}</td>
+      <td>&nbsp;{{i[5]}}</td>
+      <td>&nbsp;{{i[6]}}</td>
+      <td>&nbsp;{{i[7]}}</td>
+      <td width="57"><a href="/approvecollege?id={{i[0]}}">Approve</a></td>
+      <td width="59"><a href="/rejectcollege?id={{i[0]}}">Reject</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

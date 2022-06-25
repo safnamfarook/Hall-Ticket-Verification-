@@ -1,0 +1,35 @@
+{% extends 'index13.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/approvestud2">
+  <table class="table">
+    <tr>
+      <th width="74">STUDENT NAME </th>
+      <td width="72">{{val[0]}}</td>
+    </tr>
+    <tr>
+      <th>COURSE</th>
+      <td>{{val[7]}}</td>
+    </tr>
+    <tr>
+      <th>SCORE</th>
+      <td>&nbsp;{{val[3]}}</td>
+    </tr>
+    <tr>
+      <th>GENDER</th>
+      <td>{{val[2]}}&nbsp;</td>
+    </tr>
+    <tr>
+      <th>YEAR OF PASS</th>
+      <td>&nbsp;{{val[4]}}</td>
+    </tr>
+      <td><br><input type="submit" class="btn btn-light btn" name="Submit" value="APPROVE" /></td>
+      <td><br><label>
+        <input type="submit" class="btn btn-light btn" name="Submit" value="REJECT" />
+      </label></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p><br />
+  </p>
+</form>
+{% endblock %}

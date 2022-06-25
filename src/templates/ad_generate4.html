@@ -1,0 +1,38 @@
+{% extends 'index12.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/upcipher">
+  <table width="357" border="0" align="center">
+    <tr>
+      <td colspan="2"><div align="center"><img name="" src="../static/QR/{{im}}" width="117" height="100" alt="no image" /></div></td>
+    </tr>
+    <tr>
+      <td width="197"><font color="Black">Name of candidate </font></td>
+      <td width="144"><font color="Black"><label for="textfield"></label>
+        <input type="text" name="textfield" id="textfield" value="{{data[1]}}"/></font></td>
+    </tr>
+    <tr>
+      <td><font color="Black">Register Number</font> </td>
+      <td><font color="Black"><input type="text" name="textfield2" id="textfield2" value="{{data[0]}}" /></font></td>
+    </tr>
+    <tr>
+      <td><font color="Black">Course </font></td>
+      <td><font color="Black"><input type="text" name="textfield4" id="textfield4" value="{{data[5]}}" /></font></td>
+    </tr>
+    <tr>
+      <td><font color="Black">Gender</font> </td>
+      <td><font color="Black"><input type="text" name="textfield5" id="textfield5" value="{{data[2]}}" /></font></td>
+    </tr>
+    <tr>
+      <td><font color="Black">College</font> </td>
+      <td><font color="Black"><input type="text" name="textfield6" id="textfield6" value="{{data[3]}}"/></font></td>
+    </tr>
+
+    <tr>
+      <font color="Black">
+      <td colspan="2" align="center"><input type="submit" name="button" id="button" value="Deploy Hallticket" /></td>
+      </font>
+    </tr>
+  </table>
+</form>
+{% endblock %}

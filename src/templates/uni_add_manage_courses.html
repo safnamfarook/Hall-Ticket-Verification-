@@ -1,0 +1,23 @@
+{% extends 'index12.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/view_course">
+  <table class="table" >
+    <tr>
+      <td width="62">COURSE</td>
+      <td width="81">DURATION</td>
+      <td width="60">&nbsp;</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{i[1]}}</td>
+      <td>{{i[2]}}</td>
+      <td><a href="{{url_for('delete',id=i[0])}}">DELETE</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+  <div align="left">
+    <input type="submit" class="btn btn-light btn-sm"  name="Submit" value="ADD COURSE" />
+    <br >
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'index14.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/pkb_exam">
+  <table class="table">
+    <tr>
+      <td width="41">TITLE</td>
+      <td width="93">EXAM DETAIL </td>
+      <td width="94">&nbsp;</td>
+    </tr>
+    {% for i in val%}
+    <tr>
+      <td>&nbsp;{{i[1]}}</td>
+      <td><a href="../static/EXAMS/{{i[2]}}" download>DOWNLOAD</a></td>
+      <td><a href="/delete_exam_pkb?id={{i[0]}}">DELETE</a></td>
+    </tr>
+    {% endfor %}
+        <tr>
+      <td colspan="3" width="93" align="center"><input type="submit" class="btn btn-light btn" value="Add New" name="an"/> </td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

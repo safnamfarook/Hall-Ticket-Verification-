@@ -1,0 +1,108 @@
+{% extends 'index13.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/getinternalmarkslist">
+  <table class="table">
+    <tr>
+      <td>course</td>
+      <td><label>
+        <select name="select" class="form-control" id="select3" required>
+          <option value="">Select</option>
+          {% for i in val%}
+        <option value="{{i[0]}}" {% if crse == i[0] %} selected {% endif %}>{{i[1]}}</option>
+        {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>sem</td>
+      <td><label>
+        <select name="select2" class="form-control"  id="select" required>
+          <option value="">Select</option>
+            {% for i in range(1,7)%}
+          <option value="{{i}}" {% if sem == i %} selected {% endif %}>{{i}}</option>
+               {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+     <tr>
+      <td>Register number </td>
+      <td>
+        <select name="select3" class="form-control"  id="select5" required>
+          <option value="">Select</option>
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        
+        <div align="center">
+          <input type="submit" class="btn btn-light btn" name="Submit" value="Search" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table class="table">
+    <tr>
+      <td>subject</td>
+      <td><p>marks</p>
+      </td>
+    </tr>
+      {% for i in vall %}
+    <tr>
+      <td>{{i[1]}}</td>
+      <td>{{i[0]}}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <!--<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+<script>
+
+$(document).ready(function(){
+
+
+    $("select#select").change(function() {
+
+        if ($(this).val() != 'Select') {
+
+            var sm = $('#select option:selected').text();
+            var crs = $('#select3 option:selected').text();
+
+
+            $.ajax({
+                type: 'POST',
+                url: "/index1",
+                data: { cr: crs,sem:sm },
+
+                success: function(response) {
+                var opt = '';
+                var f='0';
+    for (var i=0, l=response.length; i<l; i=i+2)
+    {
+    if(response[i]!='**')
+    {
+            opt+='<option value="'+response[i]+'">'+response[i+1]+'</option>';
+     }
+     else
+     {
+     f='1';
+     }
+
+}
+
+ $('select#select5').html('').prop('disabled',false)
+    $('select#select5').append(opt);
+                }
+            });
+        }
+        else {
+            $('select#select5').html('').prop('disabled',true);
+        }
+    });
+
+
+});
+</script>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'index13.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table">
+    <tr>
+        <td width="40">DATE</td>
+      <td width="63">TITLE</td>
+      <td width="126">EXAM DETAIL </td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{i[0]}} </td>
+      <td>{{i[1]}} </td>
+      <td><a href="../static/EXAMS/{{i[2]}}"download>Download</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

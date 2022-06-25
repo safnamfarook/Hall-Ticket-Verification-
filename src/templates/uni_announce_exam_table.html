@@ -1,0 +1,23 @@
+{% extends 'index12.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table">
+    <tr>
+      <td width="41">TITLE</td>
+      <td width="93">EXAM DETAIL </td>
+      <td width="94">&nbsp;</td>
+    </tr>
+    {% for i in val%}
+    <tr>
+      <td>&nbsp;{{i[1]}}</td>
+      <td><a href="../static/EXAMS/{{i[2]}}" download>DOWNLOAD</a></td>
+      <td><a href="/delete_exam?id={{i[0]}}">DELETE</a></td>
+    </tr>
+    {% endfor %}
+
+
+
+  </table>
+</form>
+{% endblock %}

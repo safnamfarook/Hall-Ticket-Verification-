@@ -1,0 +1,28 @@
+{% extends 'index12.html' %}
+{% block body %}
+
+<body>
+<form action="/exam_detail" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table">
+    <tr>
+      <td width="120">EXAM DETAILS </td>
+      <td><label>
+        <input type="file" name="file" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>TITLE</td>
+      <td><label>
+        <input type="text" name="textfield" />
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" class="btn btn-light btn" name="Submit" value="Submit" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

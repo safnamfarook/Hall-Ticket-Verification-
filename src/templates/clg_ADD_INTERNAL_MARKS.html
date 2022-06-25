@@ -1,0 +1,125 @@
+{% extends 'index13.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/getinternalmarks">
+  <table class="table">
+    <tr>
+      <td>course</td>
+      <td><label>
+        <select class="form-control"  name="select3" id="select3" required >
+            <option value="">Select</option>
+          {% for i in val%}
+        <option value="{{i[0]}}">{{i[1]}}</option>
+        {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>sem</td>
+      <td><label>
+        <select class="form-control"  name="select" id="select" required >
+            <option value="">Select</option>
+             {% for i in range(1,7)%}
+          <option value="{{i}}">{{i}}</option>
+               {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>subject</td>
+      <td><label>
+        <select class="form-control"  name="select2" id="select2" required >
+          <option value="">Select</option>
+
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <tr>
+      <td>Register number </td>
+      <td>
+      <select class="form-control"  name="select5" id="select5" required>
+        <option value="">Select</option>
+
+        </select></td>
+    </tr>
+      <td>mark</td>
+      <td><label>
+        <input type="text"  class="form-control"  name="textfield2" required />
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" class="btn btn-light btn" name="Submit" value="ADD" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <!--<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+<script>
+
+$(document).ready(function(){
+
+
+    $("select#select").change(function() {
+
+        if ($(this).val() != 'Select') {
+
+            var sm = $('#select option:selected').text();
+            var crs = $('#select3 option:selected').text();
+            alert(sm);
+
+            $.ajax({
+                type: 'POST',
+                url: "/index",
+                data: { cr: crs,sem:sm },
+
+                success: function(response) {
+                var opt = '';
+                var opt1='';
+                var f='0';
+    for (var i=0, l=response.length; i<l; i=i+2)
+    {
+    if(response[i]!='**')
+    {
+        if (f=='0')
+        {
+            opt+='<option value="'+response[i]+'">'+response[i+1]+'</option>';
+        }
+        else
+        {
+            opt1+='<option value="'+response[i]+'">'+response[i+1]+'</option>';
+        }
+     }
+     else
+     {
+     f='1';
+     }
+
+}
+
+ $('select#select5').html('').prop('disabled',false)
+    $('select#select5').append(opt);
+
+    $('select#select2').html('').prop('disabled',false)
+    $('select#select2').append(opt1);
+
+                }
+            });
+        }
+        else {
+            $('select#select5').html('').prop('disabled',true);
+            $('select#select2').html('').prop('disabled',true);
+        }
+    });
+
+
+});
+</script>
+{% endblock %}
+
+
+
+

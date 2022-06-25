@@ -1,0 +1,36 @@
+{% extends 'index12.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/qr">
+  <table class="table" width="376" border="4" cellspacing="4" cellpadding="5">
+    <tr>
+      <td colspan="2"><label>
+
+        <div align="center">
+          <input type="submit" name="Submit" value="Generate Markings" />
+        </div>
+          </label></td></tr>
+    <tr>
+      <td colspan="2"><div align="center"> view3</div></td>
+    </tr>
+    <tr>
+      <td width="166">OCD (Outer Canthal Distanc) </td>
+      <td width="166">{{val[0]}}</td>
+    </tr>
+    <tr>
+      <td>IPD(Inter Pupil Distance) </td>
+      <td>{{val[1]}}</td>
+    </tr>
+    <tr>
+      <td>ICD(Inter Canthal Distance) </td>
+      <td>{{val[2]}}</td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+
+        <div align="center">
+          <input type="submit" name="Submit2" value="Encrypt &amp; Generate QR" />
+          </div>
+          </label></td></tr>
+  </table>
+</form>
+{% endblock %}
